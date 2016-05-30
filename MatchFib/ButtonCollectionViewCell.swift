@@ -44,9 +44,23 @@ class ButtonCollectionViewCell: UICollectionViewCell {
     
     func blink(style: BlinkStyle) {
         if style == .Update {
-            self.backgroundColor = UIColor.yellowColor()
+            blinkWithColor(UIColor.yellowColor())
         } else if style == .Reset {
-            self.backgroundColor = UIColor.greenColor()
+            blinkWithColor(UIColor.greenColor())
         }
+    }
+    
+    func blinkWithColor(color: UIColor) {
+        blinkAnimation({[weak self] in
+                self?.backgroundColor = color
+            }, completion: {[weak self] _ in
+                let toColor = (self?.focused == true) ? UIColor.whiteColor() : UIColor.clearColor()
+                self?.blinkAnimation({ self?.backgroundColor = toColor}, completion: nil)
+            })
+    }
+    
+    func blinkAnimation(animation: ()->Void, completion: ((Bool)->Void)?) {
+        UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1,
+                                   options: [], animations: animation, completion: completion)
     }
 }

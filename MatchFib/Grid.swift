@@ -59,7 +59,7 @@ struct Grid {
                     return GridPoint(x: point.x, y: point.y, value: point.value+1, blinkStyle: .Update)
                 }
                 
-                return point
+                return GridPoint(x: point.x, y: point.y, value: point.value, blinkStyle: .None)
             }
         }
         
