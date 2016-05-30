@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97705A1C1CFC4DE500102335 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97705A1B1CFC4DE500102335 /* Grid.swift */; };
 		97C4F1E31CFC4AE500D61BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F1E21CFC4AE500D61BE3 /* AppDelegate.swift */; };
 		97C4F1E51CFC4AE500D61BE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F1E41CFC4AE500D61BE3 /* ViewController.swift */; };
 		97C4F1E81CFC4AE500D61BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C4F1E61CFC4AE500D61BE3 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97705A1B1CFC4DE500102335 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		97C4F1DF1CFC4AE500D61BE3 /* MatchFib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchFib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C4F1E21CFC4AE500D61BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C4F1E41CFC4AE500D61BE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				97C4F1E61CFC4AE500D61BE3 /* Main.storyboard */,
 				97C4F1E91CFC4AE500D61BE3 /* Assets.xcassets */,
 				97C4F1EB1CFC4AE500D61BE3 /* Info.plist */,
+				97705A1B1CFC4DE500102335 /* Grid.swift */,
 			);
 			path = MatchFib;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				97C4F1E51CFC4AE500D61BE3 /* ViewController.swift in Sources */,
 				97C4F1E31CFC4AE500D61BE3 /* AppDelegate.swift in Sources */,
+				97705A1C1CFC4DE500102335 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,7 @@
 				97C4F1FB1CFC4AE500D61BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97C4F1FC1CFC4AE500D61BE3 /* Build configuration list for PBXNativeTarget "MatchFibTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +391,7 @@
 				97C4F1FE1CFC4AE500D61BE3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
