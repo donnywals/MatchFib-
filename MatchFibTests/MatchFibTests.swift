@@ -32,18 +32,18 @@ class MatchFibTests: XCTestCase {
         XCTAssert(grid20.rows == 20)
         XCTAssert(grid20.columns == 20)
     }
-    /*
+    
     func testCellTap() {
-        let grid = createGrid(rows: 50, columns: 50)
+        var grid = createGrid(rows: 50, columns: 50)
         let tappingPoint = CGPointMake(2, 2)
         grid.incrementFromPoint(tappingPoint)
         for point in grid.points {
-            if point.x == tappingPoint.x || point.y == tappingPoint.y {
-                XCTAssert(grid.valueForPoint(point) == 1)
+            if point.x == Int(tappingPoint.x) || point.y == Int(tappingPoint.y) {
+                XCTAssert(point.value == 1)
             } else {
-                XCTAssert(grid.valueForPoint(point) == 0)
+                XCTAssert(point.value == 0)
             }
         }
     }
-    */
+    
 }

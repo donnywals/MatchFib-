@@ -15,7 +15,7 @@ struct GridPoint {
 }
 
 struct Grid {
-    let pointMatrix: [[GridPoint]]
+    var pointMatrix: [[GridPoint]]
     
     var points: [GridPoint] {
         return pointMatrix.flatMap { $0 }
@@ -44,5 +44,20 @@ struct Grid {
         }
         
         self.pointMatrix = matrix
+    }
+    
+    mutating func incrementFromPoint(coords: CGPoint) {
+        let x = Int(coords.x)
+        let y = Int(coords.y)
+        
+        pointMatrix = pointMatrix.map { row in
+            row.map { point in
+                if point.x == x || point.y == y {
+                    return GridPoint(x: point.x, y: point.y, value: point.value+1)
+                }
+                
+                return point
+            }
+        }
     }
 }
