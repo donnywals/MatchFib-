@@ -10,6 +10,7 @@
 		97705A1C1CFC4DE500102335 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97705A1B1CFC4DE500102335 /* Grid.swift */; };
 		97705A1E1CFC626C00102335 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97705A1D1CFC626C00102335 /* GridPoint.swift */; };
 		97705A201CFCD38E00102335 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97705A1F1CFCD38E00102335 /* ButtonCollectionViewCell.swift */; };
+		97705A221CFCD95800102335 /* BlinkStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97705A211CFCD95800102335 /* BlinkStyle.swift */; };
 		97C4F1E31CFC4AE500D61BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F1E21CFC4AE500D61BE3 /* AppDelegate.swift */; };
 		97C4F1E51CFC4AE500D61BE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C4F1E41CFC4AE500D61BE3 /* ViewController.swift */; };
 		97C4F1E81CFC4AE500D61BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C4F1E61CFC4AE500D61BE3 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		97705A1B1CFC4DE500102335 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		97705A1D1CFC626C00102335 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPoint.swift; sourceTree = "<group>"; };
 		97705A1F1CFCD38E00102335 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		97705A211CFCD95800102335 /* BlinkStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlinkStyle.swift; sourceTree = "<group>"; };
 		97C4F1DF1CFC4AE500D61BE3 /* MatchFib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatchFib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C4F1E21CFC4AE500D61BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97C4F1E41CFC4AE500D61BE3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				97C4F1EB1CFC4AE500D61BE3 /* Info.plist */,
 				97705A1B1CFC4DE500102335 /* Grid.swift */,
 				97705A1D1CFC626C00102335 /* GridPoint.swift */,
+				97705A211CFCD95800102335 /* BlinkStyle.swift */,
 			);
 			path = MatchFib;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97705A221CFCD95800102335 /* BlinkStyle.swift in Sources */,
 				97C4F1E51CFC4AE500D61BE3 /* ViewController.swift in Sources */,
 				97C4F1E31CFC4AE500D61BE3 /* AppDelegate.swift in Sources */,
 				97705A1E1CFC626C00102335 /* GridPoint.swift in Sources */,

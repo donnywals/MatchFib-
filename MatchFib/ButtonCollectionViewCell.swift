@@ -41,4 +41,12 @@ class ButtonCollectionViewCell: UICollectionViewCell {
             self.backgroundColor = UIColor.clearColor()
         }
     }
+    
+    func blink(style: BlinkStyle) {
+        if style == .Update {
+            self.backgroundColor = UIColor.yellowColor()
+        } else if style == .Reset {
+            self.backgroundColor = UIColor.greenColor()
+        }
+    }
 }

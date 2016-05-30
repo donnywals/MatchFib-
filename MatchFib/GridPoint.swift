@@ -18,6 +18,7 @@ struct GridPoint: GridPointType, Hashable {
     let x: Int
     let y: Int
     let value: Int
+    let blinkStyle: BlinkStyle
     
     var hashValue: Int {
         return Int("\(x)\(y)") ?? 0

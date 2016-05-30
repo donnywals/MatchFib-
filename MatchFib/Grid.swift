@@ -31,7 +31,7 @@ struct Grid {
             var points = [GridPoint]()
             
             for column in 0..<columns {
-                points.append(GridPoint(x: column, y: row, value: 0))
+                points.append(GridPoint(x: column, y: row, value: 0, blinkStyle: .None))
             }
             
             matrix.append(points)
@@ -56,7 +56,7 @@ struct Grid {
         var tmpMatrix: [[GridPoint]] = pointMatrix.map { row in
             row.map { point in
                 if point.x == x || point.y == y {
-                    return GridPoint(x: point.x, y: point.y, value: point.value+1)
+                    return GridPoint(x: point.x, y: point.y, value: point.value+1, blinkStyle: .Update)
                 }
                 
                 return point
@@ -68,14 +68,14 @@ struct Grid {
         // find fibonaccis on the x axis
         for row in 0..<rows {
             for point in tmpMatrix.pointsInRow(row).detectFibonacciSequences() {
-                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0))
+                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
             }
         }
         
         // find fibonaccis on the y axis
         for column in 0..<columns {
             for point in tmpMatrix.pointsInColumn(column).detectFibonacciSequences() {
-                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0))
+                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
             }
         }
         

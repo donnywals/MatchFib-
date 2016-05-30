@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
-    let grid = Grid(rows: 50, columns: 50)
+    var grid = Grid(rows: 10, columns: 10)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,10 +45,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("buttonCell", forIndexPath: indexPath) as! ButtonCollectionViewCell
         
-        cell.label.text = "\(grid.pointMatrix[indexPath.section][indexPath.row].value)"
+        let point = grid.pointMatrix[indexPath.section][indexPath.row]
+        cell.label.text = "\(point.value)"
+        if point.blinkStyle != .None {
+            cell.blink(point.blinkStyle)
+        }
         
         return cell
     }
-
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        grid.incrementFromPoint(CGPointMake(CGFloat(indexPath.row), CGFloat(indexPath.section)))
+        collectionView.reloadData()
+    }
 }
 
