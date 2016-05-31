@@ -84,9 +84,10 @@ lichten deze cellen kort groen op en worden ze leeg gemaakt.
     }
     
     func testFibonacciColumnDetection() {
-        var grid = createAndValidateGrid(rows: 5, columns: 2)
+        var grid = createAndValidateGrid(rows: 5, columns: 5)
         
         grid.incrementFromPoint(CGPointMake(1, 1))
+        print(valuesForRow(0, grid: grid))
         XCTAssert(valuesForRow(0, grid: grid) == [0, 1, 0, 0, 0])
         XCTAssert(valuesForRow(1, grid: grid) == [1, 1, 1, 1, 1])
         XCTAssert(valuesForRow(2, grid: grid) == [0, 1, 0, 0, 0])
