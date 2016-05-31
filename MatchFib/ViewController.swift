@@ -8,9 +8,12 @@
 
 import UIKit
 
+private let gridWidth = 5
+private let gridHeight = 5
+
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
-    var grid = Grid(rows: 10, columns: 10)
+    var grid = Grid(rows: gridWidth, columns: gridHeight)
     
     override func viewDidLoad() {
         super.viewDidLoad()
