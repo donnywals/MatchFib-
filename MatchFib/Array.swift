@@ -10,7 +10,7 @@ import Foundation
 
 extension Array where Element: GridPointType {
     func detectFibonacciSequences() -> [GridPointType] {
-        var sequences = [[GridPointType]]()
+        var sequences = [GridPointType]()
         var currentSequence = [GridPointType]()
         
         for point in self {
@@ -52,11 +52,11 @@ extension Array where Element: GridPointType {
             currentSequence.append(point)
             
             if currentSequence.count == 5 {
-                sequences.append(currentSequence)
+                sequences += currentSequence
                 currentSequence.removeAll()
             }
         }
         
-        return sequences.flatMap { $0 }
+        return sequences
     }
 }
