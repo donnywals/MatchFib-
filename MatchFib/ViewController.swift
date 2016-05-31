@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let gridWidth = 5
-private let gridHeight = 5
+private let gridWidth = 50
+private let gridHeight = 50
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView!
