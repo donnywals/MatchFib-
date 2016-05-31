@@ -63,19 +63,20 @@ struct Grid {
             }
         }
         
-        var fibonacciPoints = Set<GridPoint>()
+        var fibonacciPoints = [GridPoint]()
         
         // find fibonaccis on the x axis
         for row in 0..<rows {
-            for point in tmpMatrix.pointsInRow(row).detectFibonacciSequences() {
-                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
+            let found = tmpMatrix.pointsInRow(row).detectFibonacciSequences()
+            for point in found {
+                fibonacciPoints.append(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
             }
         }
         
         // find fibonaccis on the y axis
         for column in 0..<columns {
             for point in tmpMatrix.pointsInColumn(column).detectFibonacciSequences() {
-                fibonacciPoints.insert(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
+                fibonacciPoints.append(GridPoint(x: point.x, y: point.y, value: 0, blinkStyle: .Reset))
             }
         }
         
@@ -92,39 +93,49 @@ struct Grid {
 extension Array where Element: GridPointType {
     func detectFibonacciSequences() -> [GridPointType] {
         var sequences = [[GridPointType]]()
-        for (i, point) in self.enumerate() {
+        var currentSequence = [GridPointType]()
+        
+        for point in self {
             let fibonacci = point.value.fibonacci
+            guard let fibIndex = fibonacci.index where fibonacci.found else {
+                currentSequence.removeAll()
+                continue
+            }
             
-            if let fibIndex = fibonacci.index where fibonacci.found {
-                var fibSequence: [GridPointType] = [point]
-                
-                var curFibIndex = fibIndex
-                var currentValueIsFib = true
-                var curPointIndex = i
-                
-                while currentValueIsFib && fibSequence.count < 5 {
-                    curPointIndex = curPointIndex.successor()
-                    
-                    guard curPointIndex < self.count else { break }
-                    
-                    let p = self[curPointIndex]
-                    
-                    let fibonacci = p.value.fibonacci
-                    var realIndex = fibonacci.index
-                    if curFibIndex == 0 && realIndex == 2 { realIndex = 1 }
-                    
-                    if let idx = realIndex where fibonacci.found && idx == curFibIndex + 1 {
-                        curFibIndex = idx
-                        currentValueIsFib = true
-                        fibSequence.append(p)
-                    } else {
-                        currentValueIsFib = false
-                    }
+            if let previousPoint = currentSequence.last, let previousFibIndex = previousPoint.value.fibonacci.index {
+                // for the number 1 the index always returns 2.
+                // so if the previous index was 0 (num 0)
+                // and the current index is 2 (num 1)
+                // we want to correct the index to 1
+                // because logically the index for a 1 after a 0
+                // should be 1 and not 2
+                var correctedFibIndex = fibIndex
+                if previousFibIndex == 0 && correctedFibIndex == 2 {
+                    correctedFibIndex = 1
                 }
                 
-                if fibSequence.count == 5 {
-                    sequences.append(fibSequence)
+                // if both current and previous value are 1
+                // we need to make sure that either:
+                // sequence count == 1 -> [1]
+                // sequence count == 2 where sequence[0] == 0 -> [0, 1]
+                let validIndexIncrement = previousFibIndex + 1 == correctedFibIndex
+                let currentIndexEqualsPreviousIndex = correctedFibIndex == 2 && previousFibIndex == 2
+                let validSequenceCountOne = currentSequence.count == 1 && currentSequence[0].value == 1
+                let validSequenceCountTwo = currentSequence.count == 2 && currentSequence[0].value == 0
+
+                if !validIndexIncrement &&
+                    !(currentIndexEqualsPreviousIndex && (validSequenceCountOne || validSequenceCountTwo)) {
+                    
+                    // not a valid entry, we need to start a new sequence
+                    currentSequence.removeAll()
                 }
+            }
+            
+            currentSequence.append(point)
+            
+            if currentSequence.count == 5 {
+                sequences.append(currentSequence)
+                currentSequence.removeAll()
             }
         }
         
